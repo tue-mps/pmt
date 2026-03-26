@@ -835,7 +835,7 @@ class LightningModule(lightning.LightningModule):
                 continue
             state_dict[clean_key] = v
 
-        if skipped:
+        if skipped and self.global_rank == 0:
             logging.info(f"Stripped {skipped:,} encoder backbone params from checkpoint")
         checkpoint["state_dict"] = state_dict
 
