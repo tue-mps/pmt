@@ -1,0 +1,34 @@
+trainer:
+  max_epochs: 12
+  logger:
+    class_path: lightning.pytorch.loggers.wandb.WandbLogger
+    init_args:
+      resume: allow
+      project: "pmt"
+      name: coco_instance_pmt_large_640_dinov3
+model:
+  class_path: training.mask_classification_instance.MaskClassificationInstance
+  init_args:
+    attn_mask_annealing_enabled: True
+    attn_mask_annealing_start_steps: [0, 23651, 32520, 41389, 50258, 59128]
+    attn_mask_annealing_end_steps: [3000, 38433, 47302, 56171, 65040, 73910]
+    lr: 2e-4
+    min_lr: 1e-9
+    warmup_steps: 6000
+    network:
+      class_path: models.pmt.PMT
+      init_args:
+        num_q: 200
+        num_blocks: 6
+        interaction_indices: [5, 11, 17, 23]
+        hidden_dim: 1024
+        encoder:
+          class_path: models.vit.ViT
+          init_args:
+            backbone_name: facebook/dinov3-vitl16-pretrain-lvd1689m
+            frozen_encoder: True
+data:
+  class_path: datasets.coco_instance.COCOInstance
+  init_args:
+    num_workers: 8
+    num_classes: 80
