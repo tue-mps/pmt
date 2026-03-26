@@ -1,0 +1,35 @@
+trainer:
+  max_epochs: 16
+  logger:
+    class_path: lightning.pytorch.loggers.wandb.WandbLogger
+    init_args:
+      resume: allow
+      project: "pmt"
+      name: ade20k_semantic_pmt_large_512_dinov3
+model:
+  class_path: training.mask_classification_semantic.MaskClassificationSemantic
+  init_args:
+    attn_mask_annealing_enabled: True
+    attn_mask_annealing_start_steps: [0, 5384, 7403, 9422, 11442, 13461]
+    attn_mask_annealing_end_steps: [3000, 8749, 10769, 12788, 14807, 16826]
+    lr: 2e-4
+    min_lr: 1e-9
+    warmup_steps: 6000
+    network:
+      class_path: models.pmt.PMT
+      init_args:
+        num_q: 100
+        num_blocks: 6
+        hidden_dim: 1024
+        interaction_indices: [5, 11, 17, 23]
+        encoder:
+          class_path: models.vit.ViT
+          init_args:
+            backbone_name: facebook/dinov3-vitl16-pretrain-lvd1689m
+            frozen_encoder: True
+data:
+  class_path: datasets.ade20k_semantic.ADE20KSemantic
+  init_args:
+    num_workers: 8
+    num_classes: 150
+    img_size: [512, 512]

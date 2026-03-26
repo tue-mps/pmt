@@ -3,6 +3,7 @@
 # Licensed under the MIT License.
 # ---------------------------------------------------------------
 
+import logging
 import warnings
 
 SUPPRESSED_WARNINGS: list[str] = [
@@ -19,3 +20,4 @@ SUPPRESSED_WARNINGS: list[str] = [
 def suppress_warnings() -> None:
     for pattern in SUPPRESSED_WARNINGS:
         warnings.filterwarnings("ignore", message=pattern)
+    logging.getLogger("torch.fx.experimental.symbolic_shapes").setLevel(logging.ERROR)

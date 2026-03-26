@@ -1,5 +1,5 @@
 # PMT: Plain Mask Transformer for Image and Video Segmentation with Frozen Vision Encoders
-**CVPR Workshop 2026** · [📄 Paper](https://github.com/tue-mps/pmt)
+**CVPR 2026 Workshop** · [📄 Paper](https://github.com/tue-mps/pmt)
 
 **[Niccolò Cavagnero](https://scholar.google.com/citations?user=Pr4XHRAAAAAJ), [Narges Norouzi](https://scholar.google.com/citations?user=q7sm490AAAAJ), [Gijs Dubbelman](https://scholar.google.nl/citations?user=wy57br8AAAAJ), [Daan de Geus](https://ddegeus.github.io)**
 

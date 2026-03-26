@@ -4,7 +4,6 @@
 # ---------------------------------------------------------------
 
 import logging
-import math
 import os
 from types import MethodType
 from typing import Optional
@@ -197,6 +196,11 @@ def _fuse_attention_qkv(attn: nn.Module) -> None:
     qkv_proj = nn.Linear(D, 3 * D, bias=True, device=device, dtype=dtype)
     qkv_proj.weight.data.copy_(qkv_weight)
     qkv_proj.bias.data.copy_(qkv_bias)
+
+    frozen = not q_proj.weight.requires_grad
+    if frozen:
+        qkv_proj.weight.requires_grad_(False)
+        qkv_proj.bias.requires_grad_(False)
 
     attn.qkv_proj = qkv_proj
     del attn.q_proj, attn.k_proj, attn.v_proj
