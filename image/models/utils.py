@@ -5,6 +5,7 @@
 
 import logging
 import math
+import os
 from types import MethodType
 from typing import Optional
 
@@ -215,5 +216,6 @@ def fuse_dinov3_qkv_projections(module: nn.Module) -> int:
         if hasattr(child, 'q_proj') and hasattr(child, 'k_proj') and hasattr(child, 'v_proj') and hasattr(child, 'o_proj'):
             _fuse_attention_qkv(child)
             count += 1
-    logging.info(f"Fused QKV projections in {count} attention modules")
+    if int(os.environ.get("LOCAL_RANK", 0)) == 0:
+        logging.info(f"Fused QKV projections in {count} attention modules")
     return count

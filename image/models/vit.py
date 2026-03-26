@@ -161,5 +161,5 @@ class ViT(nn.Module):
 
         self.backbone.eval()
 
-        if not torch.distributed.is_initialized() or torch.distributed.get_rank() == 0:
+        if int(os.environ.get("LOCAL_RANK", 0)) == 0:
             logging.info("Backbone encoder frozen.")

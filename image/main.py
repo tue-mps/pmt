@@ -13,7 +13,6 @@ from types import MethodType
 from gitignore_parser import parse_gitignore
 import logging
 import torch
-import warnings
 from lightning.pytorch import cli
 from lightning.pytorch.callbacks import ModelSummary, LearningRateMonitor
 from lightning.pytorch.loops.training_epoch_loop import _TrainingEpochLoop
@@ -21,6 +20,7 @@ from lightning.pytorch.loops.fetchers import _DataFetcher, _DataLoaderIterDataFe
 
 from training.lightning_module import LightningModule
 from datasets.lightning_data_module import LightningDataModule
+from utils import suppress_warnings
 
 # Suppress PyTorch FX warnings for DINOv3 models
 import os
@@ -86,28 +86,10 @@ def _should_check_val_fx(self: _TrainingEpochLoop, data_fetcher: _DataFetcher) -
 class LightningCLI(cli.LightningCLI):
     def __init__(self, *args, **kwargs):
         logging.getLogger().setLevel(logging.INFO)
+        suppress_warnings()
         torch.set_float32_matmul_precision("medium")
         torch._dynamo.config.capture_scalar_outputs = True
         torch._dynamo.config.suppress_errors = True
-        warnings.filterwarnings(
-            "ignore",
-            message=r".*It is recommended to use .* when logging on epoch level in distributed setting to accumulate the metric across devices.*",
-        )
-        warnings.filterwarnings(
-            "ignore",
-            message=r"^The ``compute`` method of metric PanopticQuality was called before the ``update`` method.*",
-        )
-        warnings.filterwarnings(
-            "ignore", message=r"^Grad strides do not match bucket view strides.*"
-        )
-        warnings.filterwarnings(
-            "ignore",
-            message=r".*Detected call of `lr_scheduler\.step\(\)` before `optimizer\.step\(\)`.*",
-        )
-        warnings.filterwarnings(
-            "ignore",
-            message=r".*functools.partial will be a method descriptor in future Python versions*",
-        )
 
         super().__init__(*args, **kwargs)
 
