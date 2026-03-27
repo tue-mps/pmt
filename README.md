@@ -13,7 +13,7 @@ Encoder-only models like [EoMT](https://github.com/tue-mps/eomt) and [VidEoMT](h
 
 PMT addresses this by introducing the **Plain Mask Decoder (PMD)**: a lightweight Transformer decoder that mimics the last encoder layers of EoMT, processing queries and frozen patch tokens jointly — without touching the encoder weights.
 
-The result: a model that **keeps the encoder frozen and shareable** across tasks while matching the accuracy and speed of task-specific alternatives.
+The result: a model that **keeps the encoder frozen and shareable** across tasks while matching the accuracy and speed of finetuned alternatives.
 
 ## Repository Structure
 
