@@ -56,7 +56,7 @@ wandb login
 ## Data Preparation
 
 - **Image datasets** (COCO, ADE20K, Cityscapes): follow the instructions in the [EoMT repository](https://github.com/tue-mps/eomt).
-- **Video datasets** (YouTube-VIS, VIPSeg, VSPW): follow the instructions in the [VidEoMT repository](https://github.com/tue-mps/videomt).
+
 
 ## Image Segmentation
 
