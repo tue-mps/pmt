@@ -108,14 +108,15 @@ python3 image/main.py validate \
 
 ## Video Segmentation
 
-Video segmentation code will be added in a future release. The `video/` directory is reserved for this purpose.
+For video segmentation instructions, training, evaluation, and model weights, see the [video/README.md](video/README.md).
 
 ## Model Zoo
 
 We provide pre-trained weights for PMT models with DINOv3 encoders.
 
 - **[Image Models](model_zoo/image/dinov3.md)** - Image segmentation with DINOv3 encoder.
-- **Video Models** - Coming soon.
+- **[Video Models — DINOv2](video/model_zoo/dinov2.md)** - Video segmentation with DINOv2 encoder.
+- **[Video Models — DINOv3](video/model_zoo/dinov3.md)** - Video segmentation with DINOv3 encoder.
 
 ## Citation
 
