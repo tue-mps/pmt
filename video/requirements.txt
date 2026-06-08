@@ -1,0 +1,17 @@
+numpy==1.26.4
+matplotlib==3.10.8
+timm==1.0.15
+wandb==0.19.11
+transformers==4.56.1
+scipy==1.15.2
+fvcore==0.1.5.post20221221
+pycocotools==2.0.11
+tqdm==4.67.1
+opencv-python==4.11.0.86
+pytorch-lightning==2.5.6
+einops==0.8.1
+submitit==1.5.2
+scikit-image==0.25.2
+shapely==2.1.0
+h5py==3.13.0
+gitignore_parser==0.1.12

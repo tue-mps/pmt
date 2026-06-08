@@ -179,3 +179,16 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+# Ignore all .pyc files
+**/*.pyc
+
+# Ignore all .pth files
+**/*.pth
+
+**/*.out
+
+booster_jobs/
+
+jobs/*
+
+wandb/*

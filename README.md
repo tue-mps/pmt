@@ -17,16 +17,16 @@ The result: a model that **keeps the encoder frozen and shareable** across tasks
 
 ## Repository Structure
 
-The codebase is organized by task domain. Image segmentation code is available now; video segmentation will be added in a future release.
+The codebase is organized by task domain, with separate directories for image and video segmentation.
 
 ```
 pmt/
 ├── requirements.txt          # shared dependencies
 ├── image/                    # image segmentation
-├── video/                    # video segmentation (coming soon)
+├── video/                    # video segmentation 
 ├── model_zoo/                # pre-trained weight catalogues
 │   ├── image/                # image model weights (DINOv3)
-│   └── video/                # video model weights (coming soon)
+│   └── video/                # video model weights (DINOV2, DINOV3)
 └── docs/                     # project page
 ```
 
