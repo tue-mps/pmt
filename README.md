@@ -55,7 +55,7 @@ wandb login
 
 ## Data Preparation
 
-- **Image datasets** (COCO, ADE20K, Cityscapes): follow the instructions in the [EoMT repository](https://github.com/tue-mps/eomt).
+- **Image datasets** (COCO, ADE20K): follow the instructions in the [EoMT repository](https://github.com/tue-mps/eomt).
 
 
 ## Image Segmentation
