@@ -1,4 +1,8 @@
 # PMT: Plain Mask Transformer for Image and Video Segmentation with Frozen Vision Encoders
+
+[![Papers with Code: SOTA on VSPW](https://paperswithcode.co/api/v1/papers/2603.25398/leaderboard-badge.svg?eval=17932&live=1)](https://paperswithcode.co/benchmark/vspw?task=video-segmentation&eval=17932)
+[![Papers with Code: #3 on YouTube-VIS 2019](https://paperswithcode.co/api/v1/papers/2603.25398/leaderboard-badge.svg?eval=17928&live=1)](https://paperswithcode.co/benchmark/youtube-vis-2019?task=video-segmentation&eval=17928)
+
 **CVPR 2026 Workshop** · [📄 Paper](https://arxiv.org/abs/2603.25398)
 
 **[Niccolò Cavagnero](https://scholar.google.com/citations?user=Pr4XHRAAAAAJ), [Narges Norouzi](https://scholar.google.com/citations?user=q7sm490AAAAJ), [Gijs Dubbelman](https://scholar.google.nl/citations?user=wy57br8AAAAJ), [Daan de Geus](https://ddegeus.github.io)**
